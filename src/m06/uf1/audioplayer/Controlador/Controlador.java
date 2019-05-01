@@ -1,9 +1,11 @@
-package m06.uf1.audioplayer;
+package m06.uf1.audioplayer.Controlador;
 
+import m06.uf1.audioplayer.Modelo.Audio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
+import m06.uf1.audioplayer.Vista.Vista;
 
 public class Controlador implements ActionListener {
 

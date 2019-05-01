@@ -1,4 +1,4 @@
-package m06.uf1.audioplayer;
+package m06.uf1.audioplayer.Vista;
 
 import java.awt.GridLayout;
 import javax.swing.JButton;
