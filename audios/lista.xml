@@ -1,74 +1,84 @@
 <?xml version="1.0" encoding="utf-8" >
     <biblioteca>
-        <song id="1">
-            <name>acdc - hells bells</name>
-            <author>acdc</author>
-            <album>Back in Black</album>
-            <duration>5:11</duration>
-            <route>audios/acdc - hells bells.mp3</route>
-        </song>
-        <song id="2">
-            <name>Coin</name>
-            <author>Mozart</author>
-            <album>The Dark Side of the Moon</album>
-            <duration>0:01</duration>
-            <route>audios/Coin.mp3</route>
-        </song>   
-        <song id="3">
-            <name>Cute Notification</name>
-            <author>Johann Sebastian Bach</author>
-            <album>The Bodyguard</album>
-            <duration>0:01</duration>
-            <route>audios/Cute_Notification.mp3</route>
-        </song>
-        <song id="4">
-            <name>Fairydust Sound</name>
-            <author>Mozart</author>
-            <album>Rumours</album>
-            <duration>0:02</duration>
-            <route>audios/Fairydust_Sound.mp3</route>
-        </song>
-        <song id="5">
-            <name>Htc reactive</name>
-            <author>Johann Sebastian Bach</author>
-            <album>l fantasma de la ópera</album>
-            <duration>0:01</duration>
-            <route>audios/Htc_reactive.mp3</route>
-        </song>
-        <song id="6">
-            <name>Huawei Cascade</name>
-            <author>Frédéric Chopin</author>
-            <album>Led Zeppelin IV</album>
-            <duration></duration>
-            <route>audios/Huawei_Cascade.mp3</route>
-        </song>
-        <song id="7">
-            <name>iOS 11</name>
-            <author>Frédéric Chopin</author>
-            <album>Dirty Dancing</album>
-            <duration>0:01</duration>
-            <route>audios/iOS_11.mp3</route>
-        </song>
-        <song id="8">
-            <name>iOS7 Whatsapp</name>
-            <author>Mozart</author>
-            <album>Let's Talk About Love</album>
-            <duration>0:01</duration>
-            <route>audios/IOS7_Whatsaspp.mp3</route>
-        </song>
-        <song id="9">
-            <name>iPhone 8</name>
-            <author>Frédéric Chopin</author>
-            <album>Spirits Having Flown</album>
-            <duration>0:03</duration>
-            <route>audios/iPhone_8.mp3</route>
-        </song>
-        <song id="10">
-            <name>Message</name>
-            <author>Johann Sebastian Bach</author>
-            <album>Brothers in Arms</album>
-            <duration>0:01</duration>
-            <route>audios/Message.mp3</route>
-        </song>
+        <songs>
+            <song id="1">
+                <name>acdc - hells bells</name>
+                <author>acdc</author>
+                <album>Back in Black</album>
+                <duration>5:11</duration>
+                <route>audios/acdc - hells bells.mp3</route>
+            </song>
+            <song id="2">
+                <name>Coin</name>
+                <author>Mozart</author>
+                <album>The Dark Side of the Moon</album>
+                <duration>0:01</duration>
+                <route>audios/Coin.mp3</route>
+            </song>   
+            <song id="3">
+                <name>Cute Notification</name>
+                <author>Johann Sebastian Bach</author>
+                <album>The Bodyguard</album>
+                <duration>0:01</duration>
+                <route>audios/Cute_Notification.mp3</route>
+            </song>
+            <song id="4">
+                <name>Fairydust Sound</name>
+                <author>Mozart</author>
+                <album>Rumours</album>
+                <duration>0:02</duration>
+                <route>audios/Fairydust_Sound.mp3</route>
+            </song>
+            <song id="5">
+                <name>Htc reactive</name>
+                <author>Johann Sebastian Bach</author>
+                <album>l fantasma de la ópera</album>
+                <duration>0:01</duration>
+                <route>audios/Htc_reactive.mp3</route>
+            </song>
+            <song id="6">
+                <name>Huawei Cascade</name>
+                <author>Frédéric Chopin</author>
+                <album>Led Zeppelin IV</album>
+                <duration></duration>
+                <route>audios/Huawei_Cascade.mp3</route>
+            </song>
+            <song id="7">
+                <name>iOS 11</name>
+                <author>Frédéric Chopin</author>
+                <album>Dirty Dancing</album>
+                <duration>0:01</duration>
+                <route>audios/iOS_11.mp3</route>
+            </song>
+            <song id="8">
+                <name>iOS7 Whatsapp</name>
+                <author>Mozart</author>
+                <album>Let's Talk About Love</album>
+                <duration>0:01</duration>
+                <route>audios/IOS7_Whatsaspp.mp3</route>
+            </song>
+            <song id="9">
+                <name>iPhone 8</name>
+                <author>Frédéric Chopin</author>
+                <album>Spirits Having Flown</album>
+                <duration>0:03</duration>
+                <route>audios/iPhone_8.mp3</route>
+            </song>
+            <song id="10">
+                <name>Message</name>
+                <author>Johann Sebastian Bach</author>
+                <album>Brothers in Arms</album>
+                <duration>0:01</duration>
+                <route>audios/Message.mp3</route>
+            </song>
+        </songs>
+        <playlists>
+            <playlist id="1" name="Daily mix">
+                <route></route>
+            </playlist>
+            <playlist id="2" name="Random songs">
+                <route></route>
+            </playlist>
+        </playlists>
     </biblioteca>
 </xml>
