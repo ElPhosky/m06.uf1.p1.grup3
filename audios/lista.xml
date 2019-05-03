@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" >
+<?xml version="1.0"?>
     <biblioteca>
         <songs>
             <song id="1">
@@ -73,12 +73,13 @@
             </song>
         </songs>
         <playlists>
-            <playlist id="1" name="Daily mix">
+            <playlist id="1">
+            <name>Daily mix</name>
                 <route></route>
             </playlist>
-            <playlist id="2" name="Random songs">
+            <playlist id="2">
+            <name>Random songs</name>
                 <route></route>
             </playlist>
         </playlists>
     </biblioteca>
-</xml>
