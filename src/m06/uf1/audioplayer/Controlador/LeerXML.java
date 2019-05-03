@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,21 +22,39 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-/**
- *
- * @author gonza
- */
 public class LeerXML {
-    private Map<Integer, Audio> audios;
-    private String arxiuAudios;
 
-    public LeerXML(String nomArxiu) throws IOException, ParserConfigurationException {
-        audios = new HashMap();
-        this.arxiuAudios = nomArxiu;
-        carregarAudios();
+    public Map<Integer, Audio> getAudios() {
+        return audios;
+    }
+    
+    private Map<Integer, Audio> audios;
+    private static LeerXML lector;
+    private String ubi = "audios/lista.xml";
+        
+    public static LeerXML getLectorInstance(){
+        if(lector==null){
+            lector = new LeerXML();
+        }
+        return lector;
+    }
+    
+    private LeerXML(){
+        try {
+            carga(ubi);
+        } catch (IOException ex) {
+            Logger.getLogger(LeerXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(LeerXML.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public void carregarAudios() throws FileNotFoundException, IOException, ParserConfigurationException {
+    private void carga(String nomArxiu) throws IOException, ParserConfigurationException {
+        audios = new HashMap();
+        carregarAudios(nomArxiu);
+    }
+
+    public void carregarAudios(String arxiuAudios) throws FileNotFoundException, IOException, ParserConfigurationException {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         Document document;
