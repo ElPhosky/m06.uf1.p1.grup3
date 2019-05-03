@@ -61,8 +61,10 @@ public class LeerXML {
         DocumentBuilder builder = factory.newDocumentBuilder();
 
         try {
-
-            document = builder.parse(new File(arxiuAudios));
+            File f = new File(arxiuAudios);
+            if(f.exists()){
+            System.out.println(f.exists());
+            document = builder.parse(f);
             Element arrel = document.getDocumentElement();
             NodeList llistaAudios = arrel.getChildNodes();
             for (int i = 0; i < llistaAudios.getLength(); i++) {
@@ -86,8 +88,14 @@ public class LeerXML {
                     audios.put(id, aud);
                 }
             }
-        } catch (SAXException ex) {
+        }else{
+                System.out.println("Error! fichero no encontrado. Asegurate que el xml esta en "+ubi);
+            }
+            }catch (SAXException ex) {
             ex.printStackTrace();
         }
+    }
+    public static void main(String[] args) {
+        LeerXML lXML = LeerXML.getLectorInstance();
     }
 }
