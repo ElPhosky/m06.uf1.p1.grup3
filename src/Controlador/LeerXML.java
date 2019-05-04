@@ -1,9 +1,11 @@
+package Controlador;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package m06.uf1.audioplayer.Controlador;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,8 +17,8 @@ import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import m06.uf1.audioplayer.Modelo.Audio;
-import m06.uf1.audioplayer.Modelo.Lista;
+import Modelo.Audio;
+import Modelo.Lista;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

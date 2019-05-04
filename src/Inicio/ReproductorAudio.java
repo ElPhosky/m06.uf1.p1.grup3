@@ -9,7 +9,7 @@ package Inicio;
  *
  * @author Juan
  */
-import m06.uf1.audioplayer.Controlador.Controlador;
+import Controlador.Controlador;
 import java.io.FileNotFoundException;
 
 public class ReproductorAudio {

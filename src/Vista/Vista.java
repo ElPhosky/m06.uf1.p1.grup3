@@ -1,3 +1,5 @@
+package Vista;
+
 //package m06.uf1.audioplayer.Vista;
 //
 //import javazoom.jlgui.basicplayer.*;

@@ -1,4 +1,4 @@
-package m06.uf1.audioplayer.Controlador;
+package Controlador;
 
 import java.io.*;
 import org.json.simple.JSONObject;
