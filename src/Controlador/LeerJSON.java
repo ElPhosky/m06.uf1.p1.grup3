@@ -7,16 +7,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-/**
- *
- * @author Kevin
- */
+
 public class LeerJSON {
 
-    public static Playlist SeleccionarPlaylist() {
+    private static LeerJSON lector;
+    
+    private Playlist SeleccionarPlaylist(String file) {
         JSONParser parser = new JSONParser();
         try {
-            JSONObject playlist = (JSONObject) parser.parse(new FileReader("audios/Daily mix.json"));
+            JSONObject playlist = (JSONObject) parser.parse(new FileReader(file));
             JSONArray listaCanciones = (JSONArray) playlist.get("canciones");
             int[] canciones = new int [listaCanciones.size()];
             for (int i = 0; i < listaCanciones.size(); i++) {
@@ -37,7 +36,10 @@ public class LeerJSON {
         return null;
     }
     
-    public static void main(String[] args) {
-        System.out.println(SeleccionarPlaylist().toString());
+    public static LeerJSON getlJSONInstance(){
+        if(lector == null){
+            lector = new LeerJSON();
+        }
+        return lector;
     }
 }

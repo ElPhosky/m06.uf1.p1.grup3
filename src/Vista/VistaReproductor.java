@@ -5,17 +5,32 @@
  */
 package Vista;
 
-/**
- *
- * @author gonza
- */
+import Controlador.LeerXML;
+import Modelo.Audio;
+import Modelo.Lista;
+import Modelo.Playlist;
+import java.util.ArrayList;
+import java.util.Map;
+import javax.swing.JComboBox;
+import javax.swing.table.DefaultTableModel;
+
 public class VistaReproductor extends javax.swing.JFrame {
+
+    private ArrayList<Object> columna = new ArrayList<Object>();
 
     /**
      * Creates new form VistaReproductor
      */
     public VistaReproductor() {
+        columna.add("Nom");
+        columna.add("Autor");
+        columna.add("Album");
+        columna.add("durada");
+        columna.add("ruta");
+
         initComponents();
+        this.rellenar("");
+        this.extensible();
     }
 
     /**
@@ -224,7 +239,9 @@ public class VistaReproductor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaReproductor().setVisible(true);
+                VistaReproductor vr = new VistaReproductor();
+                vr.setVisible(true);
+
             }
         });
     }
@@ -260,5 +277,35 @@ public class VistaReproductor extends javax.swing.JFrame {
 
     public Object getContinuar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void rellenar(String nombre) {
+        if (nombre.equals("")) {
+            Map<Integer, Audio> audios = LeerXML.getLectorInstance().getAudios();
+            ArrayList<Object[]> lista = new ArrayList<Object[]>();
+            for (Map.Entry<Integer, Audio> entry : audios.entrySet()) {
+                Object[] audio = {entry.getValue().getNom(), entry.getValue().getAutor(), entry.getValue().getAlbum(), entry.getValue().getDurada(), entry.getValue().getRuta()};
+                lista.add(audio);
+            }
+            DefaultTableModel modeloLista = new DefaultTableModel();
+            for (Object col : columna) {
+                modeloLista.addColumn(col);
+            }
+            this.tableCanciones.setModel(modeloLista);
+            for (Object[] entry : lista) {
+                modeloLista.addRow(entry);
+            }
+            tableCanciones.setModel(modeloLista);
+        }else{
+            
+        }
+    }
+
+    public void extensible() {
+        Map<Integer, Lista> playlists = LeerXML.getLectorInstance().getListas();
+        for (Map.Entry<Integer, Lista> entry : playlists.entrySet()) {
+            jComboBox1.addItem(entry.getValue().getNom());
+        }
+
     }
 }
