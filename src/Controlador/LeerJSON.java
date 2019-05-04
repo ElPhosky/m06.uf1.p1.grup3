@@ -22,7 +22,8 @@ public class LeerJSON {
             for (int i = 0; i < listaCanciones.size(); i++) {
                 canciones[i] = Integer.parseInt(listaCanciones.get(i).toString()); 
             }
-            Playlist seleccionada = new Playlist(playlist.get("nom").toString(), playlist.get("descripcion").toString(), canciones);    
+            Playlist seleccionada = new Playlist(playlist.get("nom").toString(), playlist.get("descripcion").toString(), canciones); 
+            return seleccionada;
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
