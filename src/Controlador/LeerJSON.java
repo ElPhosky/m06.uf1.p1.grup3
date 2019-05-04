@@ -17,7 +17,7 @@ public class LeerJSON {
         JSONParser parser = new JSONParser();
         try {
             JSONObject playlist = (JSONObject) parser.parse(new FileReader("audios/playlistAnimo.json"));
-            JSONArray listaCanciones = (JSONArray) playlist.get(parser);
+            JSONArray listaCanciones = (JSONArray) playlist.get("canciones");
             int[] canciones = new int [listaCanciones.size()];
             for (int i = 0; i < listaCanciones.size(); i++) {
                 canciones[i] = Integer.parseInt(listaCanciones.get(i).toString()); 
@@ -36,22 +36,8 @@ public class LeerJSON {
         }
         return null;
     }
-
-    public static void maino(String[] args) {
-        JSONParser parser = new JSONParser();
-        try {
-            JSONObject playlist = (JSONObject) parser.parse(new FileReader("playlist.json"));
-            System.out.println(playlist.get("nombre"));
-            JSONArray Audios = (JSONArray) playlist.get("Audio");
-            for (Object r : Audios) {
-                System.out.println(r);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+    
+    public static void main(String[] args) {
+        System.out.println(SeleccionarPlaylist().toString());
     }
 }
