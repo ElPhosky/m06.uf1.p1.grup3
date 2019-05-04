@@ -75,11 +75,11 @@
         <playlists>
             <playlist id="1">
             <name>Daily mix</name>
-                <route>prueba</route>
+                <route>audios/Daily mix.json</route>
             </playlist>
             <playlist id="2">
             <name>Random songs</name>
-                <route>prueba</route>
+                <route>audios/Random songs.json</route>
             </playlist>
         </playlists>
     </biblioteca>

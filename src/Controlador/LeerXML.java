@@ -139,11 +139,21 @@ public class LeerXML {
         }
         return lector;
     }
+    
+    public String getUbiFichero(String nombre){
+        for (Map.Entry<Integer, Lista> entry : listas.entrySet()) {
+            if(entry.getValue().getNom().equals(nombre)) return entry.getValue().getRuta();
+        }
+        return "";
+    }
+    
+    
 
     public static void main(String[] args) {
         LeerXML lXML = LeerXML.getLectorInstance();
-        Map<Integer, Audio> prueba = lXML.getAudios();
-        System.out.println(prueba.size());
-        System.out.println(prueba.toString());
+//        Map<Integer, Audio> prueba = lXML.getAudios();
+//        System.out.println(prueba.size());
+//        System.out.println(prueba.toString());
+        System.out.println(lXML.getUbiFichero("Random songs"));
     }
 }

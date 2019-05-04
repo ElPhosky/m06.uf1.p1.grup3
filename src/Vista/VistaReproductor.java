@@ -198,7 +198,17 @@ public class VistaReproductor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        String s = (String) jComboBox1.getSelectedItem();
+        
+        System.out.println(s);
+        
+        switch(s) {
+            case "Sin playlist":
+                rellenar("");
+                break;
+            case "Random songs":
+//                rellenar()
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
