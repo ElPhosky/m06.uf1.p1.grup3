@@ -13,17 +13,24 @@ import java.util.ArrayList;
  */
 public class Playlist {
     private String nombre, descripcion;
-    private ArrayList<Audio> lista;
+    private static int[] playlist;
+    private int sonando = playlist.length-1;
 
-    public Playlist(String nombre, String descripcion, ArrayList<Audio> lista) {
+    public Playlist(String nombre, String descripcion, int[] playlist , int sonando) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.lista = lista;
+        this.playlist = playlist;
+        this.sonando = sonando;
     }
 
     @Override
     public String toString() {
-        return "Playlist{" + "nombre=" + nombre + ", descripcion=" + descripcion + ", lista=" + lista + '}';
+        String aMostrar = "";
+        for (int i = 0; i < playlist.length; i++) {
+            int p = playlist[i];
+            aMostrar += " , " + p;    
+        }
+        return "Playlist{ " + "nombre=" + nombre + ", descripcion=" + descripcion + "\n , lista= {" + aMostrar.substring(1) + "}}";
     }
 
     public String getNombre() {
@@ -34,7 +41,6 @@ public class Playlist {
         return descripcion;
     }
 
-    public ArrayList<Audio> getLista() {
-        return lista;
-    } 
+    
+     
 }

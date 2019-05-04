@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.Playlist;
 import java.io.*;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
@@ -12,10 +13,10 @@ import org.json.simple.parser.ParseException;
  */
 public class LeerJSON {
 
-    public static void main(String[] args) {
+    public static Playlist SeleccionarPlaylist() {
         JSONParser parser = new JSONParser();
         try {
-            Object obj = parser.parse(new FileReader("playlist.json"));
+            Object obj = parser.parse(new FileReader("audios/playlistAnimo.json"));
             JSONObject jsonObject = (JSONObject) obj;
             String name = (String) jsonObject.get("nombre");
             System.out.println("Nombre Playlist :  " + name);
