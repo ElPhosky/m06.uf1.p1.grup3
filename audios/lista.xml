@@ -40,7 +40,7 @@
                 <name>Huawei Cascade</name>
                 <author>Frédéric Chopin</author>
                 <album>Led Zeppelin IV</album>
-                <duration></duration>
+                <duration>0:04</duration>
                 <route>audios/Huawei_Cascade.mp3</route>
             </song>
             <song id="7">
@@ -75,11 +75,11 @@
         <playlists>
             <playlist id="1">
             <name>Daily mix</name>
-                <route></route>
+                <route>prueba</route>
             </playlist>
             <playlist id="2">
             <name>Random songs</name>
-                <route></route>
+                <route>prueba</route>
             </playlist>
         </playlists>
     </biblioteca>
