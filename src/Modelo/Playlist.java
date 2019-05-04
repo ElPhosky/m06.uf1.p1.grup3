@@ -14,13 +14,12 @@ import java.util.ArrayList;
 public class Playlist {
     private String nombre, descripcion;
     private static int[] playlist;
-    private int sonando = playlist.length-1;
+    //private int sonando = playlist.length-1;
 
-    public Playlist(String nombre, String descripcion, int[] playlist , int sonando) {
+    public Playlist(String nombre, String descripcion, int[] playlist) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.playlist = playlist;
-        this.sonando = sonando;
     }
 
     @Override
@@ -30,7 +29,7 @@ public class Playlist {
             int p = playlist[i];
             aMostrar += " , " + p;    
         }
-        return "Playlist{ " + "nombre=" + nombre + ", descripcion=" + descripcion + "\n , lista= {" + aMostrar.substring(1) + "}}";
+        return "Playlist{" + "\nNombre = " + nombre + "\nDescripcion=" + descripcion + "\nLista= {" + aMostrar.substring(1) + "}}";
     }
 
     public String getNombre() {
