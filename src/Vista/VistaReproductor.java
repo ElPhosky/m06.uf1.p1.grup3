@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.LeerJSON;
 import Controlador.LeerXML;
 import Modelo.Audio;
 import Modelo.Lista;
@@ -17,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class VistaReproductor extends javax.swing.JFrame {
 
     private ArrayList<Object> columna = new ArrayList<Object>();
+    private Playlist PlaylistActual = new Playlist();
 
     /**
      * Creates new form VistaReproductor
@@ -199,15 +201,17 @@ public class VistaReproductor extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         String s = (String) jComboBox1.getSelectedItem();
-        
+
         System.out.println(s);
-        
-        switch(s) {
+
+        switch (s) {
             case "Sin playlist":
                 rellenar("");
                 break;
-            case "Random songs":
-//                rellenar()
+            default:
+                rellenar(LeerXML.getLectorInstance().getUbiFichero(s));
+                break;
+
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -290,13 +294,22 @@ public class VistaReproductor extends javax.swing.JFrame {
     }
 
     public void rellenar(String nombre) {
+        ArrayList<Object[]> lista = new ArrayList<Object[]>();
         if (nombre.equals("")) {
             Map<Integer, Audio> audios = LeerXML.getLectorInstance().getAudios();
-            ArrayList<Object[]> lista = new ArrayList<Object[]>();
             for (Map.Entry<Integer, Audio> entry : audios.entrySet()) {
                 Object[] audio = {entry.getValue().getNom(), entry.getValue().getAutor(), entry.getValue().getAlbum(), entry.getValue().getDurada(), entry.getValue().getRuta()};
                 lista.add(audio);
             }
+            PlaylistActual = LeerJSON.getlJSONInstance().SeleccionarPlaylist("audios/todas.json");
+        } else {
+            PlaylistActual = LeerJSON.getlJSONInstance().SeleccionarPlaylist(nombre);
+            for (int i = 0; i < PlaylistActual.getPlaylist().length; i++) {
+                Audio entry = LeerXML.getLectorInstance().getAudio(PlaylistActual.getPlaylist()[i]);
+                Object[] audio = {entry.getNom(), entry.getAutor(), entry.getAlbum(), entry.getDurada(), entry.getRuta()};
+                lista.add(audio);
+            }
+        }
             DefaultTableModel modeloLista = new DefaultTableModel();
             for (Object col : columna) {
                 modeloLista.addColumn(col);
@@ -306,9 +319,7 @@ public class VistaReproductor extends javax.swing.JFrame {
                 modeloLista.addRow(entry);
             }
             tableCanciones.setModel(modeloLista);
-        }else{
-            
-        }
+        
     }
 
     public void extensible() {

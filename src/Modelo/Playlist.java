@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Kevin
  */
 public class Playlist {
+
     private String nombre, descripcion;
     private static int[] playlist;
     //private int sonando = playlist.length-1;
@@ -21,13 +22,21 @@ public class Playlist {
         this.descripcion = descripcion;
         this.playlist = playlist;
     }
+    
+    public Playlist(){
+        
+    }
+
+    public int[] getPlaylist() {
+        return playlist;
+    }
 
     @Override
     public String toString() {
         String aMostrar = "";
         for (int i = 0; i < playlist.length; i++) {
             int p = playlist[i];
-            aMostrar += " , " + p;    
+            aMostrar += " , " + p;
         }
         return "Playlist{" + "\nNombre = " + nombre + "\nDescripcion=" + descripcion + "\nLista= {" + aMostrar.substring(1) + "}}";
     }
@@ -40,6 +49,4 @@ public class Playlist {
         return descripcion;
     }
 
-    
-     
 }

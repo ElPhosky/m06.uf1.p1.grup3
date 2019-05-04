@@ -12,7 +12,7 @@ public class LeerJSON {
 
     private static LeerJSON lector;
     
-    private Playlist SeleccionarPlaylist(String file) {
+    public Playlist SeleccionarPlaylist(String file) {
         JSONParser parser = new JSONParser();
         try {
             JSONObject playlist = (JSONObject) parser.parse(new FileReader(file));

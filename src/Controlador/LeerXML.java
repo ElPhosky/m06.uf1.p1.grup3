@@ -147,6 +147,10 @@ public class LeerXML {
         return "";
     }
     
+    public Audio getAudio(int pos){
+        return audios.get(pos);
+    }
+    
     
 
     public static void main(String[] args) {
@@ -154,6 +158,7 @@ public class LeerXML {
 //        Map<Integer, Audio> prueba = lXML.getAudios();
 //        System.out.println(prueba.size());
 //        System.out.println(prueba.toString());
-        System.out.println(lXML.getUbiFichero("Random songs"));
+//        System.out.println(lXML.getUbiFichero("Random songs"));
+        Audio a =lXML.getAudio(1);
     }
 }
