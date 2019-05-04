@@ -16,7 +16,7 @@ public class LeerJSON {
     public static Playlist SeleccionarPlaylist() {
         JSONParser parser = new JSONParser();
         try {
-            JSONObject playlist = (JSONObject) parser.parse(new FileReader("audios/playlistAnimo.json"));
+            JSONObject playlist = (JSONObject) parser.parse(new FileReader("audios/Daily mix.json"));
             JSONArray listaCanciones = (JSONArray) playlist.get("canciones");
             int[] canciones = new int [listaCanciones.size()];
             for (int i = 0; i < listaCanciones.size(); i++) {

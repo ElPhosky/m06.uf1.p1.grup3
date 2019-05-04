@@ -31,7 +31,7 @@ public class VistaReproductor extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCanciones = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         btnAnterior = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
         btnPausar = new javax.swing.JButton();
@@ -40,6 +40,7 @@ public class VistaReproductor extends javax.swing.JFrame {
         txtAutor = new javax.swing.JLabel();
         txtPlaylist = new javax.swing.JLabel();
         imgPlaylist = new javax.swing.JLabel();
+        sliderCancion = new javax.swing.JSlider();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,6 +147,9 @@ public class VistaReproductor extends javax.swing.JFrame {
                                     .addComponent(txtDescripcio)
                                     .addComponent(txtPlaylist)
                                     .addComponent(imgPlaylist))
+                                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(sliderCancion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap())))))
         );
         layout.setVerticalGroup(
@@ -169,7 +173,9 @@ public class VistaReproductor extends javax.swing.JFrame {
                             .addComponent(btnSiguiente)
                             .addComponent(btnPausar)
                             .addComponent(btnReanudar))
-                        .addGap(83, 83, 83))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sliderCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -233,6 +239,7 @@ public class VistaReproductor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
+    private javax.swing.JSlider sliderCancion;
     private javax.swing.JTable tableCanciones;
     private javax.swing.JLabel txtAutor;
     private javax.swing.JLabel txtDescripcio;

@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Audio;
+import Modelo.Playlist;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -12,8 +13,10 @@ public class Controlador implements ActionListener {
 
     private VistaReproductor vista;
     private Audio audio;
+    private Playlist listaActual;
 
     public Controlador() {
+        vista = new VistaReproductor();
         
     }
 
