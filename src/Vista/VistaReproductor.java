@@ -10,10 +10,12 @@ import Controlador.LeerXML;
 import Modelo.Audio;
 import Modelo.Lista;
 import Modelo.Playlist;
+import Controlador.Controlador;
 import java.util.ArrayList;
 import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class VistaReproductor extends javax.swing.JFrame {
@@ -107,6 +109,11 @@ public class VistaReproductor extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tableCanciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCancionesMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tableCanciones);
@@ -260,6 +267,14 @@ public class VistaReproductor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void tableCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCancionesMouseClicked
+
+        System.out.println(tableCanciones.getValueAt(tableCanciones.getSelectedRow(), 4).toString());
+        
+        
+        
+    }//GEN-LAST:event_tableCancionesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -333,6 +348,10 @@ public class VistaReproductor extends javax.swing.JFrame {
 
     public JButton getAnterior() {
         return btnAnterior;
+    }
+    
+    public JTable getTabla(){
+        return tableCanciones;
     }
 
     public JButton getSiguiente() {
