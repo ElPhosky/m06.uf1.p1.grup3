@@ -13,10 +13,13 @@ import Modelo.Playlist;
 import Controlador.Controlador;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 public class VistaReproductor extends javax.swing.JFrame {
 
@@ -269,7 +272,28 @@ public class VistaReproductor extends javax.swing.JFrame {
 
     private void tableCancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCancionesMouseClicked
 
-        System.out.println(tableCanciones.getValueAt(tableCanciones.getSelectedRow(), 4).toString());
+        try {
+            
+            
+            String  nom, autor, album;
+            nom = tableCanciones.getValueAt(tableCanciones.getSelectedRow(), 0).toString();
+            autor = tableCanciones.getValueAt(tableCanciones.getSelectedRow(), 1).toString();
+            album = tableCanciones.getValueAt(tableCanciones.getSelectedRow(), 2).toString();
+            
+            
+            txtCancion.setText(nom);
+            txtAutor.setText(autor);
+            txtAlbum.setText(album);
+            System.out.println(tableCanciones.getValueAt(tableCanciones.getSelectedRow(), 4).toString());
+            String ruta = tableCanciones.getValueAt(tableCanciones.getSelectedRow(), 4).toString();
+            Controlador.ReproducirCancionTabla(ruta);
+            
+            
+            
+            
+        } catch (BasicPlayerException ex) {
+            Logger.getLogger(VistaReproductor.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
         

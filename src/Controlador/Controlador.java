@@ -9,16 +9,14 @@ import java.io.File;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 import Vista.VistaReproductor;
 
-
-
 public class Controlador implements ActionListener {
 
     private VistaReproductor vista;
-    private AudioPlayer audioPlayer;
-    private Playlist listaActual;
-    private LeerXML XML;
-    private boolean Reproduciendo;
-    public Audio cancion;
+    private static AudioPlayer audioPlayer;
+    private static Playlist listaActual;
+    private static LeerXML XML;
+    public static boolean Reproduciendo;
+    public static Audio cancion;
 
     public Controlador() {
         vista = new VistaReproductor();
@@ -26,17 +24,22 @@ public class Controlador implements ActionListener {
         XML = LeerXML.getLectorInstance();
         listaActual = LeerJSON.getlJSONInstance().SeleccionarPlaylist("audios/todas.json");
         afegirListenerBotons();
-        
-        
+
     }
-    
-    public void ReproducirCancionTabla(String ruta){
+
+    public static void ReproducirCancionTabla(String ruta) throws BasicPlayerException {
         System.out.println(ruta);
         cancion = XML.getAudio(listaActual.getCancion());
+        if (Reproduciendo) {
+            audioPlayer.getPlayer().stop();
+        }
         audioPlayer = new AudioPlayer(ruta);
+        audioPlayer.getPlayer().play();
+        Reproduciendo = true;
+
     }
-    
-     public void afegirListenerBotons() {
+
+    public void afegirListenerBotons() {
         vista.getPlay().addActionListener(this);
         vista.getStop().addActionListener(this);
         vista.getAnterior().addActionListener(this);
@@ -50,31 +53,33 @@ public class Controlador implements ActionListener {
         //Declarem el gestor d'esdeveniments
         Object gestorEsdeveniments = esdeveniment.getSource();
         try {
-            
-            
-            
+
             if (gestorEsdeveniments.equals(vista.getPlay())) { //Si hem pitjat el boto play
-                vista.CancionSeleccionadaEnLayout(XML.getAudio(listaActual.getCancion()));
-                audioPlayer.getPlayer().play(); //reproduim l'àudio
-                Reproduciendo = true;
-                
+
+                 //reproduim l'àudio
+                if (Reproduciendo) {
+                    audioPlayer.getPlayer().resume();
+                }else
+                audioPlayer.getPlayer().play();
+
             } else if (gestorEsdeveniments.equals(vista.getStop())) {
                 //Si hem pitjat el boto stop
                 audioPlayer.getPlayer().stop(); //parem la reproducció de l'àudio
             } else if (gestorEsdeveniments.equals(vista.getAnterior())) {
                 //Si hem pitjat el boto stop
-                audioPlayer.getPlayer().pause(); //pausem la reproducció de l'àudio
+                //pausem la reproducció de l'àudio
+            } else if (gestorEsdeveniments.equals(vista.getPausa())) {
+                audioPlayer.getPlayer().pause();
+
+                //continuem la reproducció de l'àudio
+            } else if (gestorEsdeveniments.equals(vista.getContinuar())) {
+                //Si hem pitjat el boto stop
+                audioPlayer.getPlayer().resume(); //continuem la reproducció de l'àudio
             } else if (gestorEsdeveniments.equals(vista.getPausa())) {
                 //Si hem pitjat el boto stop
-                audioPlayer.getPlayer().resume(); //continuem la reproducció de l'àudio
-            }else if (gestorEsdeveniments.equals(vista.getContinuar())) {
-                //Si hem pitjat el boto stop
-                audioPlayer.getPlayer().resume(); //continuem la reproducció de l'àudio
-            }else if (gestorEsdeveniments.equals(vista.getPausa())) {
-                //Si hem pitjat el boto stop
                 audioPlayer.getPlayer().pause(); //continuem la reproducció de l'àudio
-            }else if (gestorEsdeveniments.equals(vista.getTabla())){
-                
+            } else if (gestorEsdeveniments.equals(vista.getTabla())) {
+
             }
         } catch (BasicPlayerException e) {
             e.printStackTrace();

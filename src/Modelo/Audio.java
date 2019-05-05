@@ -16,6 +16,14 @@ public class Audio {
         this.durada = durada;
         this.ruta = ruta;
     }
+    
+    public Audio(String nom, String autor, String album, String durada, String ruta){
+        this.nom = nom;
+        this.autor = autor;
+        this.album = album;
+        this.durada = durada;
+        this.ruta = ruta;
+    }
    
     @Override
     public String toString() {
