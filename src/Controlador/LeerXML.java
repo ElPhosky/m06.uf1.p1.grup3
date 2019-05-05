@@ -153,12 +153,12 @@ public class LeerXML {
     
     
 
-    public static void main(String[] args) {
-        LeerXML lXML = LeerXML.getLectorInstance();
-//        Map<Integer, Audio> prueba = lXML.getAudios();
-//        System.out.println(prueba.size());
-//        System.out.println(prueba.toString());
-//        System.out.println(lXML.getUbiFichero("Random songs"));
-        Audio a =lXML.getAudio(1);
-    }
+//    public static void main(String[] args) {
+//        LeerXML lXML = LeerXML.getLectorInstance();
+////        Map<Integer, Audio> prueba = lXML.getAudios();
+////        System.out.println(prueba.size());
+////        System.out.println(prueba.toString());
+////        System.out.println(lXML.getUbiFichero("Random songs"));
+//        Audio a =lXML.getAudio(1);
+//    }
 }

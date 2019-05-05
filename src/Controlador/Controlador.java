@@ -16,7 +16,7 @@ public class Controlador implements ActionListener {
     private Playlist listaActual;
 
     public Controlador() {
-        vista = new VistaReproductor();
+        vista.inicio();
         
     }
 

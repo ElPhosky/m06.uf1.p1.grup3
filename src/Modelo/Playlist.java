@@ -5,12 +5,6 @@
  */
 package Modelo;
 
-import java.util.ArrayList;
-
-/**
- *
- * @author Kevin
- */
 public class Playlist {
 
     private String nombre, descripcion;
