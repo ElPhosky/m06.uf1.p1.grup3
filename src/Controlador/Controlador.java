@@ -8,16 +8,18 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 import Vista.VistaReproductor;
+import javax.swing.JSlider;
 
 public class Controlador implements ActionListener {
 
     private VistaReproductor vista;
-    private static AudioPlayer audioPlayer;
-    private static Playlist listaActual;
-    private static LeerXML XML;
+    public static AudioPlayer audioPlayer;
+    public static Playlist listaActual;
+    public static LeerXML XML;
     public static boolean Reproduciendo = false;
     public static Audio cancion;
     public static String ultimaSeleccionada;
+    public static JSlider slider;
     
 
     public Controlador() {
@@ -58,7 +60,7 @@ public class Controlador implements ActionListener {
         Object gestorEsdeveniments = esdeveniment.getSource();
         try {
 
-            if (gestorEsdeveniments.equals(vista.getPlay())) { //Si hem pitjat el boto play
+            if (gestorEsdeveniments.equals(vista.getPlay())) { 
                 
                 //reproduim l'àudio
                 if (Reproduciendo) {
@@ -79,13 +81,10 @@ public class Controlador implements ActionListener {
                 audioPlayer.getPlayer().pause();
             } else if (gestorEsdeveniments.equals(vista.getSiguiente())) {
 
-                audioPlayer.getPlayer().resume();
+                //pendiente
             } else if (gestorEsdeveniments.equals(vista.getPausa())) {
                 audioPlayer.getPlayer().pause();
-            } else if (gestorEsdeveniments.equals(vista.getTabla())) {
-
-            }
-            else if (gestorEsdeveniments.equals(vista.getContinuar())) {
+            }else if (gestorEsdeveniments.equals(vista.getContinuar())) {
                 if(Reproduciendo)audioPlayer.getPlayer().resume();
 
             }

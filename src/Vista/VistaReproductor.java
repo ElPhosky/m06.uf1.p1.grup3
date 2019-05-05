@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JSlider;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
@@ -182,7 +183,7 @@ public class VistaReproductor extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(0, 93, Short.MAX_VALUE)
+                                                .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(btnReproducir)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(btnPausa)
@@ -208,9 +209,9 @@ public class VistaReproductor extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(btnAnterior))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(0, 50, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,6 +288,8 @@ public class VistaReproductor extends javax.swing.JFrame {
             System.out.println(tableCanciones.getValueAt(tableCanciones.getSelectedRow(), 4).toString());
             String ruta = tableCanciones.getValueAt(tableCanciones.getSelectedRow(), 4).toString();
             Controlador.ReproducirCancionTabla(ruta);
+            
+            
             
             
             
@@ -389,6 +392,7 @@ public class VistaReproductor extends javax.swing.JFrame {
     public JButton getContinuar(){
         return btnContinuar;
     }
+    
     
     public void CancionSeleccionadaEnLayout(Audio audio){
         this.txtCancion.setText(audio.getNom());
