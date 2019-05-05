@@ -15,8 +15,9 @@ public class Controlador implements ActionListener {
     private static AudioPlayer audioPlayer;
     private static Playlist listaActual;
     private static LeerXML XML;
-    public static boolean Reproduciendo;
+    public static boolean Reproduciendo = false;
     public static Audio cancion;
+    public static String ultimaSeleccionada;
 
     public Controlador() {
         vista = new VistaReproductor();
@@ -29,6 +30,7 @@ public class Controlador implements ActionListener {
 
     public static void ReproducirCancionTabla(String ruta) throws BasicPlayerException {
         System.out.println(ruta);
+        ultimaSeleccionada = ruta;
         cancion = XML.getAudio(listaActual.getCancion());
         if (Reproduciendo) {
             audioPlayer.getPlayer().stop();
@@ -56,29 +58,33 @@ public class Controlador implements ActionListener {
 
             if (gestorEsdeveniments.equals(vista.getPlay())) { //Si hem pitjat el boto play
 
-                 //reproduim l'àudio
+                //reproduim l'àudio
                 if (Reproduciendo) {
                     audioPlayer.getPlayer().resume();
-                }else
-                audioPlayer.getPlayer().play();
+                } else {
+                    
+                    
+                    audioPlayer.getPlayer().play();
+                }
 
             } else if (gestorEsdeveniments.equals(vista.getStop())) {
-                //Si hem pitjat el boto stop
-                audioPlayer.getPlayer().stop(); //parem la reproducció de l'àudio
+
+                audioPlayer.getPlayer().stop();
             } else if (gestorEsdeveniments.equals(vista.getAnterior())) {
-                //Si hem pitjat el boto stop
-                //pausem la reproducció de l'àudio
+                
+                //pendiente
             } else if (gestorEsdeveniments.equals(vista.getPausa())) {
                 audioPlayer.getPlayer().pause();
+            } else if (gestorEsdeveniments.equals(vista.getSiguiente())) {
 
-                //continuem la reproducció de l'àudio
-            } else if (gestorEsdeveniments.equals(vista.getContinuar())) {
-                //Si hem pitjat el boto stop
-                audioPlayer.getPlayer().resume(); //continuem la reproducció de l'àudio
+                audioPlayer.getPlayer().resume();
             } else if (gestorEsdeveniments.equals(vista.getPausa())) {
-                //Si hem pitjat el boto stop
-                audioPlayer.getPlayer().pause(); //continuem la reproducció de l'àudio
+                audioPlayer.getPlayer().pause();
             } else if (gestorEsdeveniments.equals(vista.getTabla())) {
+
+            }
+            else if (gestorEsdeveniments.equals(vista.getContinuar())) {
+                if(Reproduciendo)audioPlayer.getPlayer().resume();
 
             }
         } catch (BasicPlayerException e) {
