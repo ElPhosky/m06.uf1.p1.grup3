@@ -70,15 +70,14 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="btnAnterior" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="0" pref="93" max="32767" attributes="0"/>
                                               <Component id="btnReproducir" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btnPausar" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnPausa" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btnContinuar" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btnStop" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btnSiguiente" min="-2" max="-2" attributes="0"/>
@@ -107,6 +106,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtAlbum" min="-2" pref="59" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="btnAnterior" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -146,12 +146,12 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnAnterior" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnPausar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnReproducir" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnSiguiente" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnStop" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnContinuar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnReproducir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnPausa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAnterior" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnStop" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="sliderCancion" min="-2" max="-2" attributes="0"/>
@@ -231,34 +231,10 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnAnterior">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Anterior"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnteriorActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btnSiguiente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Siguiente"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnPausar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pausar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPausarActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnReproducir">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Reproducir"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReproducirActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="txtPlaylist">
       <Properties>
@@ -273,14 +249,6 @@
     <Component class="javax.swing.JSlider" name="sliderCancion">
     </Component>
     <Component class="javax.swing.JLabel" name="lblDescripcion">
-    </Component>
-    <Component class="javax.swing.JButton" name="btnStop">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Stop"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStopActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnContinuar">
       <Properties>
@@ -315,6 +283,26 @@
     <Component class="javax.swing.JLabel" name="txtAlbum">
       <Properties>
         <Property name="text" type="java.lang.String" value=" "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnReproducir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reproducir"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPausa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pausa"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAnterior">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Anterior"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnStop">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stop"/>
       </Properties>
     </Component>
   </SubComponents>

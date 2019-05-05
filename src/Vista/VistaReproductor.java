@@ -51,15 +51,11 @@ public class VistaReproductor extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCanciones = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<String>();
-        btnAnterior = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
-        btnPausar = new javax.swing.JButton();
-        btnReproducir = new javax.swing.JButton();
         txtPlaylist = new javax.swing.JLabel();
         imgPlaylist = new javax.swing.JLabel();
         sliderCancion = new javax.swing.JSlider();
         lblDescripcion = new javax.swing.JLabel();
-        btnStop = new javax.swing.JButton();
         btnContinuar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -67,6 +63,10 @@ public class VistaReproductor extends javax.swing.JFrame {
         txtCancion = new javax.swing.JLabel();
         txtAutor = new javax.swing.JLabel();
         txtAlbum = new javax.swing.JLabel();
+        btnReproducir = new javax.swing.JButton();
+        btnPausa = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
+        btnStop = new javax.swing.JButton();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,39 +118,11 @@ public class VistaReproductor extends javax.swing.JFrame {
             }
         });
 
-        btnAnterior.setText("Anterior");
-        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAnteriorActionPerformed(evt);
-            }
-        });
-
         btnSiguiente.setText("Siguiente");
-
-        btnPausar.setText("Pausar");
-        btnPausar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPausarActionPerformed(evt);
-            }
-        });
-
-        btnReproducir.setText("Reproducir");
-        btnReproducir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReproducirActionPerformed(evt);
-            }
-        });
 
         txtPlaylist.setText("[NOMBRE DE PLAYLIST]");
 
         imgPlaylist.setText("Descripción Playlist :");
-
-        btnStop.setText("Stop");
-        btnStop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopActionPerformed(evt);
-            }
-        });
 
         btnContinuar.setText("Continuar");
 
@@ -165,6 +137,14 @@ public class VistaReproductor extends javax.swing.JFrame {
         txtAutor.setText(" ");
 
         txtAlbum.setText(" ");
+
+        btnReproducir.setText("Reproducir");
+
+        btnPausa.setText("Pausa");
+
+        btnAnterior.setText("Anterior");
+
+        btnStop.setText("Stop");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,11 +172,10 @@ public class VistaReproductor extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnAnterior)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(0, 93, Short.MAX_VALUE)
                                                 .addComponent(btnReproducir)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnPausar)
+                                                .addComponent(btnPausa)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(btnContinuar)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -219,7 +198,8 @@ public class VistaReproductor extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnAnterior))
                                 .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
@@ -249,12 +229,12 @@ public class VistaReproductor extends javax.swing.JFrame {
                             .addComponent(txtAlbum))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAnterior)
-                            .addComponent(btnPausar)
-                            .addComponent(btnReproducir)
                             .addComponent(btnSiguiente)
-                            .addComponent(btnStop)
-                            .addComponent(btnContinuar))
+                            .addComponent(btnContinuar)
+                            .addComponent(btnReproducir)
+                            .addComponent(btnPausa)
+                            .addComponent(btnAnterior)
+                            .addComponent(btnStop))
                         .addGap(35, 35, 35)
                         .addComponent(sliderCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55))
@@ -279,22 +259,6 @@ public class VistaReproductor extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAnteriorActionPerformed
-
-    private void btnPausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPausarActionPerformed
-
-    private void btnReproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReproducirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnReproducirActionPerformed
-
-    private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,12 +286,14 @@ public class VistaReproductor extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VistaReproductor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
                 VistaReproductor vr = new VistaReproductor();
+                
                 vr.setVisible(true);
             }
         });
@@ -336,7 +302,7 @@ public class VistaReproductor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnContinuar;
-    private javax.swing.JButton btnPausar;
+    private javax.swing.JButton btnPausa;
     private javax.swing.JButton btnReproducir;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnStop;
@@ -362,7 +328,7 @@ public class VistaReproductor extends javax.swing.JFrame {
     }
 
     public JButton getStop() {
-        return btnPausar;
+        return btnStop;
     }
 
     public JButton getAnterior() {
@@ -374,7 +340,7 @@ public class VistaReproductor extends javax.swing.JFrame {
     }
     
     public JButton getPausa(){
-        return btnPausar;
+        return btnPausa;
     }
     
     public JButton getContinuar(){
