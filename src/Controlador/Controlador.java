@@ -23,6 +23,7 @@ public class Controlador implements ActionListener {
         vista.inicio();
         XML = LeerXML.getLectorInstance();
         listaActual = LeerJSON.getlJSONInstance().SeleccionarPlaylist("audios/todas.json");
+        afegirListenerBotons();
         
     }
     
@@ -44,9 +45,11 @@ public class Controlador implements ActionListener {
         try {
             if (gestorEsdeveniments.equals(vista.getPlay())) { //Si hem pitjat el boto play
                 vista.CancionSeleccionadaEnLayout(XML.getAudio(listaActual.getCancion()));
-                audioPlayer = new AudioPlayer(cancion.getRuta());
-                audioPlayer.getPlayer().play(); //reproduim l'àudio
                 cancion = XML.getAudio(listaActual.getCancion());
+                audioPlayer = new AudioPlayer(cancion.getRuta());
+                System.out.println(cancion.getRuta());
+                audioPlayer.getPlayer().play(); //reproduim l'àudio
+                
                 
                 Reproduciendo = true;
                 
