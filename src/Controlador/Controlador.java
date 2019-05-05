@@ -18,6 +18,7 @@ public class Controlador implements ActionListener {
     public static boolean Reproduciendo = false;
     public static Audio cancion;
     public static String ultimaSeleccionada;
+    
 
     public Controlador() {
         vista = new VistaReproductor();
@@ -31,7 +32,8 @@ public class Controlador implements ActionListener {
     public static void ReproducirCancionTabla(String ruta) throws BasicPlayerException {
         System.out.println(ruta);
         ultimaSeleccionada = ruta;
-        cancion = XML.getAudio(listaActual.getCancion());
+        
+        //cancion = XML.getAudio(listaActual.getCancion());
         if (Reproduciendo) {
             audioPlayer.getPlayer().stop();
         }
@@ -57,7 +59,7 @@ public class Controlador implements ActionListener {
         try {
 
             if (gestorEsdeveniments.equals(vista.getPlay())) { //Si hem pitjat el boto play
-
+                
                 //reproduim l'àudio
                 if (Reproduciendo) {
                     audioPlayer.getPlayer().resume();
