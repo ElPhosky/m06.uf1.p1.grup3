@@ -9,12 +9,13 @@ public class Playlist {
 
     private String nombre, descripcion;
     private static int[] playlist;
-    //private int sonando = playlist.length-1;
+    private int sonando;
 
     public Playlist(String nombre, String descripcion, int[] playlist) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.playlist = playlist;
+        sonando = playlist.length-1;
     }
     
     public Playlist(){
@@ -42,5 +43,11 @@ public class Playlist {
     public String getDescripcion() {
         return descripcion;
     }
+    
+    public int getCancion(){
+        return playlist[sonando];
+    }
+    
+    
 
 }

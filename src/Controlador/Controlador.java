@@ -15,9 +15,14 @@ public class Controlador implements ActionListener {
     private VistaReproductor vista;
     private AudioPlayer audioPlayer;
     private Playlist listaActual;
+    private LeerXML XML;
+    private boolean Reproduciendo;
+    private Audio cancion;
 
     public Controlador() {
         vista.inicio();
+        XML = LeerXML.getLectorInstance();
+        listaActual = LeerJSON.getlJSONInstance().SeleccionarPlaylist("audios/todas.json");
         
     }
     
@@ -31,12 +36,20 @@ public class Controlador implements ActionListener {
     }
 
     @Override
+    
+    
     public void actionPerformed(ActionEvent esdeveniment) {
         //Declarem el gestor d'esdeveniments
         Object gestorEsdeveniments = esdeveniment.getSource();
         try {
             if (gestorEsdeveniments.equals(vista.getPlay())) { //Si hem pitjat el boto play
+                vista.CancionSeleccionadaEnLayout(XML.getAudio(listaActual.getCancion()));
+                audioPlayer = new AudioPlayer(cancion.getRuta());
                 audioPlayer.getPlayer().play(); //reproduim l'àudio
+                cancion = XML.getAudio(listaActual.getCancion());
+                
+                Reproduciendo = true;
+                
             } else if (gestorEsdeveniments.equals(vista.getStop())) {
                 //Si hem pitjat el boto stop
                 audioPlayer.getPlayer().stop(); //parem la reproducció de l'àudio

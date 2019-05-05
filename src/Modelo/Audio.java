@@ -6,6 +6,7 @@ public class Audio {
 
     
     private String nom, autor, album, durada, ruta;
+    
 
     public Audio(int id, String nom, String autor, String album, String durada, String ruta) {
         this.id = id;

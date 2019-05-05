@@ -12,6 +12,7 @@ import Modelo.Lista;
 import Modelo.Playlist;
 import java.util.ArrayList;
 import java.util.Map;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,6 +30,7 @@ public class VistaReproductor extends javax.swing.JFrame {
         columna.add("Album");
         columna.add("durada");
         columna.add("ruta");
+        setResizable(false);
 
         initComponents();
         this.rellenar("");
@@ -52,12 +54,19 @@ public class VistaReproductor extends javax.swing.JFrame {
         btnAnterior = new javax.swing.JButton();
         btnSiguiente = new javax.swing.JButton();
         btnPausar = new javax.swing.JButton();
-        btnReanudar = new javax.swing.JButton();
-        txtDescripcio = new javax.swing.JLabel();
-        txtAutor = new javax.swing.JLabel();
+        btnReproducir = new javax.swing.JButton();
         txtPlaylist = new javax.swing.JLabel();
         imgPlaylist = new javax.swing.JLabel();
         sliderCancion = new javax.swing.JSlider();
+        lblDescripcion = new javax.swing.JLabel();
+        btnStop = new javax.swing.JButton();
+        btnContinuar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCancion = new javax.swing.JLabel();
+        txtAutor = new javax.swing.JLabel();
+        txtAlbum = new javax.swing.JLabel();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,15 +134,37 @@ public class VistaReproductor extends javax.swing.JFrame {
             }
         });
 
-        btnReanudar.setText("Reanudar");
-
-        txtDescripcio.setText("Descripción: ");
-
-        txtAutor.setText("Autor:");
+        btnReproducir.setText("Reproducir");
+        btnReproducir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReproducirActionPerformed(evt);
+            }
+        });
 
         txtPlaylist.setText("[NOMBRE DE PLAYLIST]");
 
-        imgPlaylist.setText("[IMÁGEN DE PLAYLIST]");
+        imgPlaylist.setText("Descripción Playlist :");
+
+        btnStop.setText("Stop");
+        btnStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStopActionPerformed(evt);
+            }
+        });
+
+        btnContinuar.setText("Continuar");
+
+        jLabel1.setText("Canción :");
+
+        jLabel2.setText("Autor :");
+
+        jLabel3.setText("Álbum:");
+
+        txtCancion.setText(" ");
+
+        txtAutor.setText(" ");
+
+        txtAlbum.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,32 +178,54 @@ public class VistaReproductor extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAnterior)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPausar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                                .addComponent(btnReanudar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSiguiente))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
+                                .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAutor)
-                                    .addComponent(txtDescripcio)
-                                    .addComponent(txtPlaylist)
-                                    .addComponent(imgPlaylist))
-                                .addContainerGap())
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(22, 22, 22)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtPlaylist)
+                                            .addComponent(imgPlaylist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btnAnterior)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnReproducir)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnPausar)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnContinuar)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnStop)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnSiguiente))
+                                            .addComponent(sliderCancion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addContainerGap())))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(sliderCancion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtAutor))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtCancion))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -180,17 +233,29 @@ public class VistaReproductor extends javax.swing.JFrame {
                         .addComponent(txtPlaylist)
                         .addGap(46, 46, 46)
                         .addComponent(imgPlaylist)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtAutor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDescripcio)
-                        .addGap(109, 109, 109)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtCancion))
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtAutor))
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtAlbum))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAnterior)
-                            .addComponent(btnSiguiente)
                             .addComponent(btnPausar)
-                            .addComponent(btnReanudar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnReproducir)
+                            .addComponent(btnSiguiente)
+                            .addComponent(btnStop)
+                            .addComponent(btnContinuar))
+                        .addGap(35, 35, 35)
                         .addComponent(sliderCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -223,6 +288,14 @@ public class VistaReproductor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPausarActionPerformed
 
+    private void btnReproducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReproducirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReproducirActionPerformed
+
+    private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStopActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -253,6 +326,7 @@ public class VistaReproductor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 VistaReproductor vr = new VistaReproductor();
                 vr.setVisible(true);
             }
@@ -261,35 +335,56 @@ public class VistaReproductor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnContinuar;
     private javax.swing.JButton btnPausar;
-    private javax.swing.JButton btnReanudar;
+    private javax.swing.JButton btnReproducir;
     private javax.swing.JButton btnSiguiente;
+    private javax.swing.JButton btnStop;
     private javax.swing.JLabel imgPlaylist;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
+    private javax.swing.JLabel lblDescripcion;
     private javax.swing.JSlider sliderCancion;
     private javax.swing.JTable tableCanciones;
+    private javax.swing.JLabel txtAlbum;
     private javax.swing.JLabel txtAutor;
-    private javax.swing.JLabel txtDescripcio;
+    private javax.swing.JLabel txtCancion;
     private javax.swing.JLabel txtPlaylist;
     // End of variables declaration//GEN-END:variables
 
-    public Object getPlay() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JButton getPlay() {
+        return btnReproducir;
     }
 
-    public Object getStop() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JButton getStop() {
+        return btnPausar;
     }
 
-    public Object getPausa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JButton getAnterior() {
+        return btnAnterior;
     }
 
-    public Object getContinuar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public JButton getSiguiente() {
+        return btnSiguiente;
+    }
+    
+    public JButton getPausa(){
+        return btnPausar;
+    }
+    
+    public JButton getContinuar(){
+        return btnContinuar;
+    }
+    
+    public void CancionSeleccionadaEnLayout(Audio audio){
+        this.txtCancion.setText(audio.getNom());
+        this.txtAutor.setText(audio.getAutor());
+        this.txtAlbum.setText(audio.getAlbum());
     }
 
     public void rellenar(String nombre) {
@@ -298,27 +393,32 @@ public class VistaReproductor extends javax.swing.JFrame {
             Map<Integer, Audio> audios = LeerXML.getLectorInstance().getAudios();
             for (Map.Entry<Integer, Audio> entry : audios.entrySet()) {
                 Object[] audio = {entry.getValue().getNom(), entry.getValue().getAutor(), entry.getValue().getAlbum(), entry.getValue().getDurada(), entry.getValue().getRuta()};
+                txtPlaylist.setText("Sin Playlist seleccionada");
+                lblDescripcion.setText("No tienes ninguna playlist seleccionada.");
                 lista.add(audio);
             }
             PlaylistActual = LeerJSON.getlJSONInstance().SeleccionarPlaylist("audios/todas.json");
         } else {
             PlaylistActual = LeerJSON.getlJSONInstance().SeleccionarPlaylist(nombre);
+
             for (int i = 0; i < PlaylistActual.getPlaylist().length; i++) {
                 Audio entry = LeerXML.getLectorInstance().getAudio(PlaylistActual.getPlaylist()[i]);
                 Object[] audio = {entry.getNom(), entry.getAutor(), entry.getAlbum(), entry.getDurada(), entry.getRuta()};
+                txtPlaylist.setText(PlaylistActual.getNombre());
+                lblDescripcion.setText(PlaylistActual.getDescripcion());
                 lista.add(audio);
             }
         }
-            DefaultTableModel modeloLista = new DefaultTableModel();
-            for (Object col : columna) {
-                modeloLista.addColumn(col);
-            }
-            this.tableCanciones.setModel(modeloLista);
-            for (Object[] entry : lista) {
-                modeloLista.addRow(entry);
-            }
-            tableCanciones.setModel(modeloLista);
-        
+        DefaultTableModel modeloLista = new DefaultTableModel();
+        for (Object col : columna) {
+            modeloLista.addColumn(col);
+        }
+        this.tableCanciones.setModel(modeloLista);
+        for (Object[] entry : lista) {
+            modeloLista.addRow(entry);
+        }
+        tableCanciones.setModel(modeloLista);
+
     }
 
     public void extensible() {
