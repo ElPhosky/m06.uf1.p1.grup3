@@ -15,11 +15,11 @@ public class Playlist {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.playlist = playlist;
-        sonando = playlist.length-1;
+        sonando = playlist.length - 1;
     }
-    
-    public Playlist(){
-        
+
+    public Playlist() {
+
     }
 
     public int[] getPlaylist() {
@@ -44,10 +44,33 @@ public class Playlist {
         return descripcion;
     }
     
-    public int getCancion(){
+    public void SetSonando(int s){
+      this.sonando = s;
+    }
+
+    public int getCancion() {
         return playlist[sonando];
     }
-    
-    
+    public int getCancionPos() {
+        return sonando;
+    }
+
+    public int siguientecancion() {
+        if (sonando + 1 < playlist.length) {
+            sonando = playlist[sonando+1];
+            return sonando;
+        } else {
+            return sonando;
+        }
+    }
+
+    public int anteriorcancion() {
+        if (sonando - 1 > 0) {
+            sonando = playlist[sonando-1];
+            return sonando;
+        } else {
+            return sonando;
+        }
+    }
 
 }
